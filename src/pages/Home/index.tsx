@@ -1,10 +1,5 @@
-import {
-  AuthorCard,
-  HomeContainer,
-  PostCard,
-  PostList,
-  SearchForm,
-} from './styles'
+import { PostCard } from './components/PostCard'
+import { AuthorCard, HomeContainer, PostList, SearchForm } from './styles'
 import {
   FaExternalLinkAlt,
   FaGithub,
@@ -81,13 +76,12 @@ export function Home() {
       <PostList>
         {postsTemp.map((post) => {
           return (
-            <PostCard key={post.id}>
-              <div>
-                <h2>{post.title}</h2>
-                <span>Há 1 dia</span>
-              </div>
-              <p>{post.content}...</p>
-            </PostCard>
+            <PostCard
+              key={post.id}
+              title={post.title}
+              content={post.content}
+              date={new Date()}
+            />
           )
         })}
       </PostList>
