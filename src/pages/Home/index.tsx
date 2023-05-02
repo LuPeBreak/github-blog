@@ -1,5 +1,6 @@
 import { PostCard } from './components/PostCard'
-import { AuthorCard, HomeContainer, PostList, SearchForm } from './styles'
+import { SearchForm } from './components/SearchForm'
+import { AuthorCard, HomeContainer, PostList } from './styles'
 import {
   FaExternalLinkAlt,
   FaGithub,
@@ -42,8 +43,7 @@ export function Home() {
           <header>
             <h1>Luis Felipe</h1>
             <a href="">
-              {' '}
-              GITHUB <FaExternalLinkAlt />
+              GITHUB <FaExternalLinkAlt size={12} />
             </a>
           </header>
           <p>
@@ -64,15 +64,7 @@ export function Home() {
           </div>
         </div>
       </AuthorCard>
-      <SearchForm>
-        <div>
-          <h2>Publicações</h2>
-          <span>6 publicações</span>
-        </div>
-        <form action="">
-          <input type="text" />
-        </form>
-      </SearchForm>
+      <SearchForm />
       <PostList>
         {postsTemp.map((post) => {
           return (
