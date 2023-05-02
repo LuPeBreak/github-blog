@@ -33,6 +33,9 @@ export const AuthorCard = styled.div`
       }
 
       a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         font-size: 0.75rem;
         font-weight: 700;
         color: ${(props) => props.theme['brand-blue']};
@@ -47,6 +50,12 @@ export const AuthorCard = styled.div`
     & > div {
       display: flex;
       gap: 1.5rem;
+
+      & > span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
     }
   }
 `
@@ -54,13 +63,75 @@ export const AuthorCard = styled.div`
 export const SearchForm = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
   width: 100%;
-  background-color: red;
   margin-bottom: 3rem;
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: ${(props) => props.theme['base-subtitle']};
+    }
+
+    span {
+      font-size: 0.875rem;
+      color: ${(props) => props.theme['base-span']};
+    }
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid ${(props) => props.theme['base-border']};
+    border-radius: 6px;
+    background-color: ${(props) => props.theme['base-input']};
+
+    ::placeholder {
+      color: ${(props) => props.theme['base-label']};
+    }
+  }
 `
 
 export const PostList = styled.div`
   display: flex;
   width: 100%;
-  background-color: red;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+`
+
+export const PostCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.25rem;
+  padding: 2rem;
+  max-width: 26rem;
+  background-color: ${(props) => props.theme['base-post']};
+  border-radius: 10px;
+
+  & > div {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: ${(props) => props.theme['base-title']};
+      max-width: 70%;
+    }
+    span {
+      font-size: 0%.875rem;
+      color: ${(props) => props.theme['base-span']};
+    }
+  }
+
+  & > p {
+  }
 `
