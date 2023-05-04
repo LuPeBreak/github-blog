@@ -12,5 +12,4 @@ export const PostList = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  margin-bottom: 2rem;
 `

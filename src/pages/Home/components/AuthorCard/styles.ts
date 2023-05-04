@@ -25,16 +25,6 @@ export const AuthorCardContainer = styled.div`
         font-weight: 700;
         font-size: 1.5rem;
       }
-
-      a {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.75rem;
-        font-weight: 700;
-        color: ${(props) => props.theme['brand-blue']};
-        text-decoration: none;
-      }
     }
 
     & > p {

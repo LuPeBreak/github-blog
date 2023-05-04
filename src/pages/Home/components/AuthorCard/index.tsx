@@ -1,3 +1,4 @@
+import { BaseLink } from '../../../../styles/baseComponents'
 import { AuthorCardContainer } from './styles'
 import {
   FaExternalLinkAlt,
@@ -13,9 +14,9 @@ export function AuthorCard() {
       <div>
         <header>
           <h1>Luis Felipe</h1>
-          <a href="">
+          <BaseLink href="">
             GITHUB <FaExternalLinkAlt size={12} />
-          </a>
+          </BaseLink>
         </header>
         <p>
           Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu

@@ -13,4 +13,5 @@ export const DefaultLayoutContent = styled.main`
   margin: -3.5rem auto 0;
   width: 100%;
   max-width: 864px;
+  margin-bottom: 2rem;
 `
