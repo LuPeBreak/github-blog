@@ -41,4 +41,11 @@ export const PostTitleCard = styled.div`
 export const PostContent = styled.div`
   width: 100%;
   padding: 2.5rem 2rem;
+
+  p,
+  ul {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: ${(props) => props.theme['base-text']};
+  }
 `
