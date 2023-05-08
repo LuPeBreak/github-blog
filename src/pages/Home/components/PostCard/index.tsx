@@ -1,6 +1,7 @@
 import { PostCardContainer } from './styles'
 import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
+import { MarkdownConverter } from '../../../../components/MarkdownConverter'
 
 interface PostCardProps {
   title: string
@@ -20,7 +21,7 @@ export function PostCard({ title, date, content }: PostCardProps) {
           })}
         </span>
       </div>
-      <p>{content}...</p>
+      <MarkdownConverter markdown={content} />
     </PostCardContainer>
   )
 }

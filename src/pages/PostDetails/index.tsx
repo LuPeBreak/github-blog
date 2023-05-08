@@ -12,9 +12,10 @@ import { useCallback, useEffect, useState } from 'react'
 import { api } from '../../lib/axios'
 import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
-import { MarkdownConverter } from './MarkdownConverter'
+import { MarkdownConverter } from '../../components/MarkdownConverter'
 
 interface PostData {
+  postURL: string
   title: string
   body: string
   userLogin: string
@@ -25,7 +26,12 @@ interface PostData {
 export function PostDetails() {
   const { postId } = useParams()
   const [post, setPost] = useState<PostData>({} as PostData)
-  let formattedDate = ''
+  const formattedDate = post.createdAt
+    ? formatDistanceToNow(new Date(post.createdAt), {
+        addSuffix: true,
+        locale: ptBR,
+      })
+    : ''
 
   const GetPostData = useCallback(async () => {
     const response = await api.get(
@@ -34,6 +40,7 @@ export function PostDetails() {
 
     const data = response.data
     const postData: PostData = {
+      postURL: data.html_url,
       title: data.title,
       body: data.body,
       userLogin: data.user.login,
@@ -46,27 +53,16 @@ export function PostDetails() {
 
   useEffect(() => {
     GetPostData()
-
-    if (post.createdAt) {
-      const date = new Date(post.createdAt)
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      formattedDate = formatDistanceToNow(date, {
-        addSuffix: true,
-        locale: ptBR,
-      })
-    }
   }, [GetPostData])
-
-  console.log(post)
 
   return (
     <PostDetailsContainer>
       <PostTitleCard>
         <nav>
-          <BaseLink>
+          <BaseLink to={'/'}>
             <FaChevronLeft size={12} /> <span>Voltar</span>
           </BaseLink>
-          <BaseLink href="">
+          <BaseLink to={post.postURL || ''}>
             <span>Ver no github</span> <FaExternalLinkAlt size={12} />
           </BaseLink>
         </nav>
@@ -80,7 +76,8 @@ export function PostDetails() {
             {formattedDate}
           </span>
           <span>
-            <FaComment size={18} /> {post.comments} comentarios
+            <FaComment size={18} /> {post.comments}
+            {post.comments === 1 ? 'comentario' : 'comentarios'}
           </span>
         </div>
       </PostTitleCard>

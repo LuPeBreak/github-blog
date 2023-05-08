@@ -8,8 +8,13 @@ export const HomeContainer = styled.div`
 
 export const PostList = styled.div`
   display: flex;
+  align-items: stretch;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 2rem;
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme['base-text']};
+  }
 `
